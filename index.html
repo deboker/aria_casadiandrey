@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aria | Casa di Andrey</title>
+    <meta
+      name="description"
+      content="Prezentačná podstránka fenky nemeckého boxera Aria s galériou, videami, pedigree, zdravotnými certifikátmi a výstavnými výsledkami."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="ambient ambient-left" aria-hidden="true"></div>
+      <div class="ambient ambient-right" aria-hidden="true"></div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Prezentačná podstránka bez headera a footera</p>
+          <h1 id="hero-name"></h1>
+          <p class="hero-subtitle" id="hero-subtitle"></p>
+          <p class="hero-text" id="hero-intro"></p>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="metric-label">Narodená</span>
+              <strong class="metric-value" id="hero-birth-date"></strong>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Vek</span>
+              <strong class="metric-value" id="hero-age"></strong>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Plemeno</span>
+              <strong class="metric-value" id="hero-breed"></strong>
+            </div>
+          </div>
+
+          <div class="section-links">
+            <a href="#steniatko">Keď bola malá</a>
+            <a href="#dnes">Aktuálne fotky</a>
+            <a href="#videa">Videá</a>
+            <a href="#pedigree">Pedigree a kniha</a>
+            <a href="#zdravie">Certifikáty</a>
+            <a href="#vystavy">Výstavy</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="hero-panel-inner">
+            <p class="panel-label">Casa di Andrey</p>
+            <div class="crest">A</div>
+            <p class="panel-quote" id="hero-quote"></p>
+            <div class="highlight-list" id="highlight-list"></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="steniatko">
+        <div class="section-heading">
+          <p class="eyebrow">Galéria</p>
+          <h2>Keď bola ešte mladá</h2>
+          <p>
+            Miesto pre prvé fotografie Arie. Po doplnení súborov sa karty automaticky
+            prepnu z placeholderov na reálne náhľady.
+          </p>
+        </div>
+        <div class="media-grid" id="puppy-gallery"></div>
+      </section>
+
+      <section class="section" id="dnes">
+        <div class="section-heading">
+          <p class="eyebrow">Aktuálna prezentácia</p>
+          <h2>Aria dnes</h2>
+          <p>
+            Sekcia pre nové portréty, postoje, detailné zábery a aktuálnu kondíciu.
+          </p>
+        </div>
+        <div class="media-grid media-grid-current" id="current-gallery"></div>
+      </section>
+
+      <section class="section" id="videa">
+        <div class="section-heading">
+          <p class="eyebrow">Video sekcia</p>
+          <h2>Videá a pohyb</h2>
+          <p>
+            Pri videách môžeš použiť lokálne súbory alebo externé odkazy. Layout je
+            pripravený na prezentáciu voľného pohybu aj výstavného postoje.
+          </p>
+        </div>
+        <div class="video-grid" id="video-gallery"></div>
+      </section>
+
+      <section class="section section-split" id="pedigree">
+        <div>
+          <div class="section-heading">
+            <p class="eyebrow">Dokumentácia</p>
+            <h2>Pedigree a kniha</h2>
+            <p>
+              Na tejto strane môžeš zobraziť skeny rodokmeňa, klubovej knihy alebo
+              exporty vo formáte PDF a obrázkoch.
+            </p>
+          </div>
+          <div class="document-grid" id="pedigree-documents"></div>
+        </div>
+
+        <div>
+          <div class="section-heading" id="zdravie">
+            <p class="eyebrow">Overené zdravie</p>
+            <h2>Zdravotné certifikáty</h2>
+            <p>
+              Priestor pre zdravotné vyšetrenia, oficiálne potvrdenia a prípadné
+              exporty výsledkov.
+            </p>
+          </div>
+          <div class="document-grid" id="health-documents"></div>
+        </div>
+      </section>
+
+      <section class="section" id="vystavy">
+        <div class="section-heading">
+          <p class="eyebrow">Výstavná história</p>
+          <h2>Výstavné výsledky</h2>
+          <p>
+            Výsledky sú pripravené ako čisté karty, aby sa dali priebežne dopĺňať bez
+            prekopávania dizajnu.
+          </p>
+        </div>
+        <div class="results-grid" id="results-list"></div>
+      </section>
+
+      <section class="section setup-note">
+        <div class="setup-card">
+          <p class="eyebrow">Obsah a deploy</p>
+          <h2>Pripravené pre GitHub a Netlify</h2>
+          <p>
+            Obsah upravíš v súbore <code>content.js</code> a médiá vložíš do priečinka
+            <code>media/</code>. Projekt je statický, takže je vhodný na okamžitý deploy
+            na Netlify bez buildu.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Zavrieť detail">
+        Zavrieť
+      </button>
+      <img id="lightbox-image" alt="" />
+      <p id="lightbox-caption"></p>
+    </dialog>
+
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
