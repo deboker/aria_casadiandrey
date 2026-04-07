@@ -156,7 +156,28 @@ function renderResults(target, items) {
     const article = document.createElement("article");
     article.className = "result-card";
 
+    const resultVisual = item.image?.src
+      ? `
+        <button
+          class="result-visual result-visual-button"
+          type="button"
+          data-image="${item.image.src}"
+          data-caption="${item.event}"
+        >
+          <img src="${item.image.src}" alt="${item.image.alt || item.event}" loading="lazy" />
+        </button>
+      `
+      : `
+        <div class="result-visual result-visual-placeholder">
+          <div class="placeholder-stack">
+            <strong>${item.event}</strong>
+            <span>Add document image to ${item.image?.hint || "media/docs/show-results/"}</span>
+          </div>
+        </div>
+      `;
+
     article.innerHTML = `
+      ${resultVisual}
       <div class="result-body">
         <span class="result-meta">${item.date || "Add date"}</span>
         <h3>${item.event}</h3>
@@ -166,12 +187,13 @@ function renderResults(target, items) {
           <span><strong>Result:</strong> ${item.placement}</span>
         </div>
       </div>
-      <div class="result-body">
-        <p class="result-note">${item.note}</p>
-      </div>
     `;
 
     target.appendChild(article);
+  });
+
+  target.querySelectorAll(".result-visual-button").forEach((button) => {
+    button.addEventListener("click", () => openLightbox(button.dataset.image, button.dataset.caption));
   });
 }
 
@@ -219,7 +241,10 @@ function renderHeroVisual(image) {
 
   if (image?.src) {
     heroVisual.className = "hero-visual has-image";
-    heroVisual.innerHTML = `<img src="${image.src}" alt="${image.alt || `${siteData.hero.name} hero image`}" loading="eager" />`;
+    heroVisual.innerHTML = `
+      <img src="${image.src}" alt="${image.alt || `${siteData.hero.name} hero image`}" loading="eager" />
+      ${image.date ? `<span class="hero-image-date">${image.date}</span>` : ""}
+    `;
     return;
   }
 

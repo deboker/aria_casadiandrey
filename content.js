@@ -14,24 +14,24 @@ window.ariaSiteData = {
   },
   puppyGallery: [
     {
-      title: "First Weeks",
-      description: "Add soft portraits from Aria's earliest puppy period here.",
+      title: "Portrait",
+      description: "Puppy portrait from the 28 January 2023 photo session.",
       src: "media/photos/puppy/aria_puppy_28.01.23.jpeg",
-      alt: "Aria as a puppy in her first weeks",
+      alt: "Aria puppy portrait from 28 January 2023",
       hint: "media/photos/puppy/aria_puppy_28.01.23.jpeg"
     },
     {
-      title: "Home Moments",
-      description: "A place for playful snapshots and a warm family atmosphere.",
+      title: "Standing",
+      description: "Standing pose from the 28 January 2023 photo session.",
       src: "media/photos/puppy/aria_puppy_28.01.2023.jpeg",
-      alt: "Aria puppy home moment",
+      alt: "Aria standing as a puppy on 28 January 2023",
       hint: "media/photos/puppy/aria_puppy_28.01.2023.jpeg"
     },
     {
-      title: "First Stacks",
-      description: "Use this slot for an early show stance or profile shot.",
+      title: "Lying",
+      description: "Lying pose from the 28 January 2023 photo session.",
       src: "media/photos/puppy/aria_puppy_2_28.01.2023.jpeg",
-      alt: "Aria early puppy stance",
+      alt: "Aria lying as a puppy on 28 January 2023",
       hint: "media/photos/puppy/aria_puppy_2_28.01.2023.jpeg"
     }
   ],
