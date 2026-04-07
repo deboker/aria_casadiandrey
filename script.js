@@ -76,7 +76,7 @@ function renderImageCards(target, items) {
         <div class="media-placeholder">
           <div class="placeholder-stack">
             <strong>${item.title}</strong>
-            <span>Pridaj obrázok do ${item.hint}</span>
+            <span>Add image to ${item.hint}</span>
           </div>
         </div>
       `;
@@ -106,7 +106,7 @@ function renderVideoCards(target, items) {
       ? `
         <video controls preload="metadata"${item.poster ? ` poster="${item.poster}"` : ""}>
           <source src="${item.src}" />
-          Tvoj prehliadač nepodporuje prehrávanie videa.
+          Your browser does not support video playback.
         </video>
       `
       : `
@@ -114,7 +114,7 @@ function renderVideoCards(target, items) {
           <div class="placeholder-stack">
             <div class="video-play">▶</div>
             <strong>${item.title}</strong>
-            <span>Pridaj video do ${item.hint}</span>
+            <span>Add video to ${item.hint}</span>
           </div>
         </div>
       `;
@@ -141,7 +141,7 @@ function renderDocumentCards(target, items) {
       element.href = item.file;
       element.target = "_blank";
       element.rel = "noreferrer";
-      element.setAttribute("aria-label", `${item.title} - otvoriť dokument`);
+      element.setAttribute("aria-label", `${item.title} - open document`);
     }
 
     element.innerHTML = `
@@ -151,7 +151,7 @@ function renderDocumentCards(target, items) {
       <div class="doc-body">
         <h3>${item.title}</h3>
         <p class="doc-description">${item.description}</p>
-        <span class="doc-type">${isLink ? "Otvoriť dokument" : `Pridaj súbor do ${item.hint}`}</span>
+        <span class="doc-type">${isLink ? "Open document" : `Add file to ${item.hint}`}</span>
       </div>
     `;
 
@@ -166,12 +166,12 @@ function renderResults(target, items) {
 
     article.innerHTML = `
       <div class="result-body">
-        <span class="result-meta">${item.date || "Doplniť dátum"}</span>
+        <span class="result-meta">${item.date || "Add date"}</span>
         <h3>${item.event}</h3>
         <div class="result-details">
-          <span><strong>Trieda:</strong> ${item.className}</span>
-          <span><strong>Rozhodca:</strong> ${item.judge}</span>
-          <span><strong>Výsledok:</strong> ${item.placement}</span>
+          <span><strong>Class:</strong> ${item.className}</span>
+          <span><strong>Judge:</strong> ${item.judge}</span>
+          <span><strong>Result:</strong> ${item.placement}</span>
         </div>
       </div>
       <div class="result-body">
@@ -184,9 +184,9 @@ function renderResults(target, items) {
 }
 
 function formatDate(date) {
-  return new Intl.DateTimeFormat("sk-SK", {
-    day: "2-digit",
-    month: "2-digit",
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "long",
     year: "numeric"
   }).format(date);
 }
@@ -206,14 +206,18 @@ function formatAge(date) {
   }
 
   if (years <= 0) {
-    return `${months} mesiacov`;
+    return `${months} ${pluralize(months, "month", "months")}`;
   }
 
   if (months === 0) {
-    return `${years} ${years === 1 ? "rok" : years < 5 ? "roky" : "rokov"}`;
+    return `${years} ${pluralize(years, "year", "years")}`;
   }
 
-  return `${years} r. ${months} mes.`;
+  return `${years} ${pluralize(years, "year", "years")} ${months} ${pluralize(months, "month", "months")}`;
+}
+
+function pluralize(value, singular, plural) {
+  return value === 1 ? singular : plural;
 }
 
 function openLightbox(src, caption) {

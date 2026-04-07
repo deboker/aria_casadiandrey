@@ -1,45 +1,45 @@
 window.ariaSiteData = {
   hero: {
     name: "Aria",
-    subtitle: "Fenka nemeckého boxera | Casa di Andrey",
+    subtitle: "Female German Boxer | Casa di Andrey",
     intro:
-      "Elegantná, výrazná a pripravená na reprezentáciu v kruhu aj mimo neho. Táto podstránka zhromažďuje fotografie od šteniatka až po aktuálne obdobie, videá, oficiálne dokumenty a výstavné výsledky na jednom mieste.",
+      "Elegant, expressive, and ready to represent herself both in the ring and beyond. This page brings together Aria's journey from puppyhood to the present day, with photos, videos, official documents, and show results in one place.",
     birthDate: "2022-12-18",
-    breed: "Nemecký boxer",
-    quote: "Jemná vo výraze, pevná v postoji a pripravená ukázať svoj rodokmeň aj výsledky.",
+    breed: "German Boxer",
+    quote: "Soft in expression, strong in stance, and ready to present both her pedigree and her results.",
     highlights: [
       {
-        title: "Pripravená galéria",
-        text: "Samostatné sekcie pre mladé fotky aj aktuálne portréty."
+        title: "Ready-made gallery",
+        text: "Separate sections for early puppy photos and current portraits."
       },
       {
-        title: "Dokumenty na očiach",
-        text: "Pedigree, kniha a zdravotné certifikáty v čistých kartách."
+        title: "Documents in focus",
+        text: "Pedigree, stud book, and health certificates in clean document cards."
       },
       {
-        title: "Výstavy bez chaosu",
-        text: "Výsledky sa dajú pridávať postupne bez zmeny dizajnu."
+        title: "Show results without clutter",
+        text: "New results can be added gradually without changing the layout."
       }
     ]
   },
   puppyGallery: [
     {
-      title: "Prvé týždne",
-      description: "Doplň sem jemné portréty zo šteňacieho obdobia.",
+      title: "First Weeks",
+      description: "Add soft portraits from Aria's earliest puppy period here.",
       src: "",
       alt: "",
       hint: "media/photos/puppy/aria-puppy-01.jpg"
     },
     {
-      title: "Domáce momenty",
-      description: "Miesto pre hravé zábery a rodinnú atmosféru.",
+      title: "Home Moments",
+      description: "A place for playful snapshots and a warm family atmosphere.",
       src: "",
       alt: "",
       hint: "media/photos/puppy/aria-puppy-02.jpg"
     },
     {
-      title: "Prvé postoje",
-      description: "Sem môže ísť prvý výstavný alebo profilový postoj.",
+      title: "First Stacks",
+      description: "Use this slot for an early show stance or profile shot.",
       src: "",
       alt: "",
       hint: "media/photos/puppy/aria-puppy-03.jpg"
@@ -47,29 +47,29 @@ window.ariaSiteData = {
   ],
   currentGallery: [
     {
-      title: "Aktuálny portrét",
-      description: "Hlavná reprezentačná fotografia Arie.",
+      title: "Current Portrait",
+      description: "Aria's main presentation image.",
       src: "",
       alt: "",
       hint: "media/photos/current/aria-current-01.jpg"
     },
     {
-      title: "Výstavný postoj",
-      description: "Profil, línia tela a celkové osvalenie.",
+      title: "Show Stance",
+      description: "Profile, topline, and overall condition.",
       src: "",
       alt: "",
       hint: "media/photos/current/aria-current-02.jpg"
     },
     {
-      title: "Detail hlavy",
-      description: "Výraz, proporcie a charakterický pohľad.",
+      title: "Head Detail",
+      description: "Expression, proportions, and characteristic look.",
       src: "",
       alt: "",
       hint: "media/photos/current/aria-current-03.jpg"
     },
     {
-      title: "Pohyb alebo akcia",
-      description: "Dynamickejší záber z aktuálneho obdobia.",
+      title: "Movement or Action",
+      description: "A more dynamic image from the current period.",
       src: "",
       alt: "",
       hint: "media/photos/current/aria-current-04.jpg"
@@ -77,22 +77,22 @@ window.ariaSiteData = {
   ],
   videos: [
     {
-      title: "Voľný pohyb",
-      description: "Priestor pre krátke video s prirodzeným pohybom.",
+      title: "Free Movement",
+      description: "Space for a short clip showing natural movement.",
       src: "",
       poster: "",
       hint: "media/videos/aria-movement.mp4"
     },
     {
-      title: "Postoj a prezentácia",
-      description: "Video z tréningu alebo z výstavného kruhu.",
+      title: "Stance and Presentation",
+      description: "A video from training or from the show ring.",
       src: "",
       poster: "",
       hint: "media/videos/aria-show-stance.mp4"
     },
     {
-      title: "Každodenný moment",
-      description: "Krátky klip, ktorý ukáže povahu a temperament.",
+      title: "Everyday Moment",
+      description: "A short clip that shows personality and temperament.",
       src: "",
       poster: "",
       hint: "media/videos/aria-everyday.mp4"
@@ -101,14 +101,14 @@ window.ariaSiteData = {
   pedigreeDocuments: [
     {
       title: "Pedigree",
-      description: "Pridaj sken rodokmeňa alebo PDF export.",
+      description: "Add a scan of the pedigree or a PDF export.",
       type: "PDF / JPG",
       file: "",
       hint: "media/docs/pedigree/aria-pedigree.pdf"
     },
     {
-      title: "Kniha",
-      description: "Skeny zápisov, klubovej knihy alebo potvrdení pôvodu.",
+      title: "Stud Book",
+      description: "Scans of entries, stud book pages, or origin records.",
       type: "JPG / PNG / PDF",
       file: "",
       hint: "media/docs/pedigree/aria-book-page.jpg"
@@ -116,15 +116,15 @@ window.ariaSiteData = {
   ],
   healthDocuments: [
     {
-      title: "Zdravotný certifikát",
-      description: "Oficiálne potvrdenie, výsledok vyšetrenia alebo export.",
+      title: "Health Certificate",
+      description: "An official certificate, examination result, or exported report.",
       type: "PDF / JPG",
       file: "",
       hint: "media/docs/health/aria-health-certificate.pdf"
     },
     {
-      title: "Doplnkový dokument",
-      description: "Priestor pre ďalšie zdravotné nálezy alebo potvrdenia.",
+      title: "Additional Document",
+      description: "Space for further health findings or official confirmations.",
       type: "PDF / JPG",
       file: "",
       hint: "media/docs/health/aria-health-extra.jpg"
@@ -133,27 +133,27 @@ window.ariaSiteData = {
   results: [
     {
       date: "",
-      event: "Pridaj prvú výstavu",
-      className: "Trieda",
-      judge: "Rozhodca",
-      placement: "Výsledok",
-      note: "Výsledky upravíš priamo v content.js."
+      event: "Add the first show result",
+      className: "Class",
+      judge: "Judge",
+      placement: "Result",
+      note: "Edit the results directly in content.js."
     },
     {
       date: "",
-      event: "Pridaj druhý výsledok",
-      className: "Trieda",
-      judge: "Rozhodca",
-      placement: "Výsledok",
-      note: "Môžeš pridávať ďalšie karty podľa potreby."
+      event: "Add the second result",
+      className: "Class",
+      judge: "Judge",
+      placement: "Result",
+      note: "You can add more result cards whenever needed."
     },
     {
       date: "",
-      event: "Pridaj tretí výsledok",
-      className: "Trieda",
-      judge: "Rozhodca",
-      placement: "Výsledok",
-      note: "Layout ostane stabilný aj po doplnení viacerých úspechov."
+      event: "Add the third result",
+      className: "Class",
+      judge: "Judge",
+      placement: "Result",
+      note: "The layout stays stable even after adding more achievements."
     }
   ]
 };
