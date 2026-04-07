@@ -7,8 +7,6 @@ const heroBirthDate = document.getElementById("hero-birth-date");
 const heroAge = document.getElementById("hero-age");
 const heroBreed = document.getElementById("hero-breed");
 const heroVisual = document.getElementById("hero-visual");
-const heroQuote = document.getElementById("hero-quote");
-const highlightList = document.getElementById("highlight-list");
 
 const puppyGallery = document.getElementById("puppy-gallery");
 const currentGallery = document.getElementById("current-gallery");
@@ -31,14 +29,6 @@ heroBirthDate.textContent = formatDate(birthDate);
 heroAge.textContent = formatAge(birthDate);
 heroBreed.textContent = siteData.hero.breed;
 renderHeroVisual(siteData.hero.panelImage);
-heroQuote.textContent = siteData.hero.quote;
-
-siteData.hero.highlights.forEach((item) => {
-  const article = document.createElement("article");
-  article.className = "highlight-item";
-  article.innerHTML = `<strong>${item.title}</strong><span>${item.text}</span>`;
-  highlightList.appendChild(article);
-});
 
 renderImageCards(puppyGallery, siteData.puppyGallery);
 renderImageCards(currentGallery, siteData.currentGallery);

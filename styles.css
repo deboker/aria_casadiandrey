@@ -13,7 +13,7 @@
   --radius-xl: 36px;
   --radius-lg: 26px;
   --radius-md: 20px;
-  --max-width: 1220px;
+  --max-width: 1680px;
 }
 
 * {
@@ -30,8 +30,16 @@ body {
   font-family: "Manrope", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(212, 129, 90, 0.2), transparent 34%),
-    radial-gradient(circle at 85% 15%, rgba(121, 60, 34, 0.18), transparent 24%),
+    radial-gradient(
+      circle at top left,
+      rgba(212, 129, 90, 0.2),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(121, 60, 34, 0.18),
+      transparent 24%
+    ),
     linear-gradient(180deg, #f8f0e5 0%, #f2e8db 100%);
 }
 
@@ -47,9 +55,9 @@ a {
 
 .page-shell {
   position: relative;
-  width: 100%;
+  width: min(100%, var(--max-width));
   margin: 0 auto;
-  padding: 42px 16px 72px;
+  padding: 42px 20px 72px;
 }
 
 .ambient {
@@ -86,7 +94,7 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(320px, 0.88fr) minmax(420px, 1.22fr);
+  grid-template-columns: minmax(320px, 0.8fr) minmax(460px, 1.2fr);
   gap: 24px;
   align-items: stretch;
 }
@@ -103,22 +111,19 @@ a {
 
 .hero-copy {
   width: 100%;
-  max-width: 820px;
   padding: 46px;
   border-radius: var(--radius-xl);
 }
 
 .hero-panel {
-  padding: 18px;
+  padding: 16px;
   border-radius: var(--radius-xl);
 }
 
 .hero-panel-inner {
-  display: grid;
-  align-content: start;
-  gap: 20px;
   height: 100%;
-  padding: 28px;
+  padding: 0;
+  overflow: hidden;
   border-radius: calc(var(--radius-xl) - 8px);
   border: 1px solid var(--line);
   background:
@@ -127,26 +132,28 @@ a {
 }
 
 .hero-visual {
+  height: 100%;
   overflow: hidden;
   border-radius: 28px;
 }
 
 .hero-visual.has-image {
-  min-height: clamp(320px, 36vw, 560px);
-  border: 1px solid var(--line);
+  min-height: clamp(360px, 40vw, 760px);
   background: rgba(255, 247, 239, 0.65);
 }
 
 .hero-visual.has-image img {
   width: 100%;
   height: 100%;
-  min-height: clamp(320px, 36vw, 560px);
+  min-height: clamp(360px, 40vw, 760px);
   object-fit: cover;
   object-position: center;
 }
 
 .hero-visual.is-crest {
-  display: block;
+  display: grid;
+  place-items: center;
+  min-height: 420px;
 }
 
 .eyebrow {
@@ -251,15 +258,6 @@ h2 {
   border-color: rgba(164, 75, 41, 0.32);
 }
 
-.panel-label {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 .crest {
   display: grid;
   place-items: center;
@@ -268,45 +266,17 @@ h2 {
   margin: 0;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.32)),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.92),
+      rgba(255, 255, 255, 0.32)
+    ),
     linear-gradient(135deg, rgba(164, 75, 41, 0.24), rgba(95, 40, 18, 0.5));
   font-family: "Cormorant Garamond", serif;
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--accent-deep);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
-}
-
-.panel-quote {
-  margin: 0;
-  max-width: 18ch;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.9rem;
-  line-height: 1.1;
-  color: var(--accent-deep);
-}
-
-.highlight-list {
-  display: grid;
-  gap: 12px;
-}
-
-.highlight-item {
-  padding: 14px 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.52);
-  border: 1px solid var(--line);
-}
-
-.highlight-item strong {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 1rem;
-}
-
-.highlight-item span {
-  color: var(--muted);
-  font-size: 0.95rem;
 }
 
 .section {
@@ -399,7 +369,11 @@ h2 {
   overflow: hidden;
   background:
     linear-gradient(140deg, rgba(164, 75, 41, 0.16), rgba(95, 40, 18, 0.08)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 247, 239, 0.62));
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.84),
+      rgba(255, 247, 239, 0.62)
+    );
 }
 
 .media-placeholder::before,
@@ -606,15 +580,15 @@ h2 {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
   }
 }
 
 @media (max-width: 820px) {
   .page-shell {
-    width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
+    width: min(100%, var(--max-width));
+    padding-left: 14px;
+    padding-right: 14px;
     padding-top: 18px;
     padding-bottom: 42px;
   }
