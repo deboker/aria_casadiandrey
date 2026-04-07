@@ -8,30 +8,31 @@ window.ariaSiteData = {
     breed: "German Boxer",
     panelImage: {
       src: "media/photos/current/aria_08.01.2024.webp",
-      alt: "Aria portrait"
+      alt: "Aria portrait",
+      date: "08.01.2024"
     }
   },
   puppyGallery: [
     {
       title: "First Weeks",
       description: "Add soft portraits from Aria's earliest puppy period here.",
-      src: "",
-      alt: "",
-      hint: "media/photos/puppy/aria-puppy-01.jpg"
+      src: "media/photos/puppy/aria_puppy_28.01.23.jpeg",
+      alt: "Aria as a puppy in her first weeks",
+      hint: "media/photos/puppy/aria_puppy_28.01.23.jpeg"
     },
     {
       title: "Home Moments",
       description: "A place for playful snapshots and a warm family atmosphere.",
-      src: "",
-      alt: "",
-      hint: "media/photos/puppy/aria-puppy-02.jpg"
+      src: "media/photos/puppy/aria_puppy_28.01.2023.jpeg",
+      alt: "Aria puppy home moment",
+      hint: "media/photos/puppy/aria_puppy_28.01.2023.jpeg"
     },
     {
       title: "First Stacks",
       description: "Use this slot for an early show stance or profile shot.",
-      src: "",
-      alt: "",
-      hint: "media/photos/puppy/aria-puppy-03.jpg"
+      src: "media/photos/puppy/aria_puppy_2_28.01.2023.jpeg",
+      alt: "Aria early puppy stance",
+      hint: "media/photos/puppy/aria_puppy_2_28.01.2023.jpeg"
     }
   ],
   currentGallery: [
@@ -121,28 +122,40 @@ window.ariaSiteData = {
   ],
   results: [
     {
-      date: "",
-      event: "Add the first show result",
-      className: "Class",
-      judge: "Judge",
-      placement: "Result",
-      note: "Edit the results directly in content.js."
+      date: "20.05.2023",
+      event: "CAC Zmajevo 2023",
+      className: "Baby class",
+      judge: "Mica Mladenovic",
+      placement: "VP 1 — Very Promising 1",
+      image: {
+        src: "",
+        alt: "CAC Zmajevo 2023 show document",
+        hint: "media/docs/show-results/cac-zmajevo-2023.jpg"
+      }
     },
     {
       date: "",
       event: "Add the second result",
-      className: "Class",
+      className: "Puppy class",
       judge: "Judge",
       placement: "Result",
-      note: "You can add more result cards whenever needed."
+      image: {
+        src: "",
+        alt: "Second show result document",
+        hint: "media/docs/show-results/show-result-02.jpg"
+      }
     },
     {
       date: "",
       event: "Add the third result",
-      className: "Class",
+      className: "Puppy class",
       judge: "Judge",
       placement: "Result",
-      note: "The layout stays stable even after adding more achievements."
+      image: {
+        src: "",
+        alt: "Third show result document",
+        hint: "media/docs/show-results/show-result-03.jpg"
+      }
     }
   ]
 };
