@@ -37,87 +37,96 @@ window.ariaSiteData = {
   ],
   currentGallery: [
     {
-      title: "Current Portrait",
-      description: "Aria's main presentation image.",
-      src: "",
-      alt: "",
-      hint: "media/photos/current/aria-current-01.jpg"
+      title: "Sitting",
+      description: "Latest sitting portrait from the home photo session on 30 January 2026.",
+      src: "media/photos/current/aria_sit_30.01.26.jpeg",
+      alt: "Aria sitting on 30 January 2026",
+      hint: "media/photos/current/aria_sit_30.01.26.jpeg"
     },
     {
-      title: "Show Stance",
-      description: "Profile, topline, and overall condition.",
-      src: "",
-      alt: "",
-      hint: "media/photos/current/aria-current-02.jpg"
+      title: "Right Side Guarding Pose",
+      description: "Latest right side guarding pose near the fence from 30 January 2026.",
+      src: "media/photos/current/aria_30.01.26.jpeg",
+      alt: "Aria right side guarding pose near the fence on 30 January 2026",
+      hint: "media/photos/current/aria_30.01.26.jpeg"
     },
     {
-      title: "Head Detail",
-      description: "Expression, proportions, and characteristic look.",
-      src: "",
-      alt: "",
-      hint: "media/photos/current/aria-current-03.jpg"
-    },
-    {
-      title: "Movement or Action",
-      description: "A more dynamic image from the current period.",
-      src: "",
-      alt: "",
-      hint: "media/photos/current/aria-current-04.jpg"
+      title: "Left Side Guarding Pose",
+      description: "Latest left side guarding pose near the fence from 30 January 2026.",
+      src: "media/photos/current/aria_guard_30.01.26.jpeg",
+      alt: "Aria left side guarding pose near the fence on 30 January 2026",
+      hint: "media/photos/current/aria_guard_30.01.26.jpeg"
     }
   ],
   videos: [
     {
       title: "Free Movement",
-      description: "Space for a short clip showing natural movement.",
-      src: "",
+      description: "12.08.2025. Movement on leash.",
+      src: "media/videos/aria_video_12.08.2025.mp4",
+      ageLabel: "3 years old",
       poster: "",
-      hint: "media/videos/aria-movement.mp4"
+      hint: "media/videos/aria_video_12.08.2025.mp4"
+    },
+    {
+      title: "Free Movement",
+      description:
+        "14.09.2024. Active and highly motivated in retrieving balls, sticks, and other objects.",
+      src: "media/videos/aria_video_14.09.2024.mp4",
+      ageLabel: "2 years old",
+      poster: "",
+      hint: "media/videos/aria_video_14.09.2024.mp4"
     },
     {
       title: "Stance and Presentation",
-      description: "A video from training or from the show ring.",
-      src: "",
+      description: "13.12.2023. Free movement during Aria's younger period.",
+      src: "media/videos/aria_video_13.12.2023.mp4",
+      ageLabel: "1 year old",
       poster: "",
-      hint: "media/videos/aria-show-stance.mp4"
-    },
-    {
-      title: "Everyday Moment",
-      description: "A short clip that shows personality and temperament.",
-      src: "",
-      poster: "",
-      hint: "media/videos/aria-everyday.mp4"
-    }
+      hint: "media/videos/aria_video_13.12.2023.mp4"
+    }    
   ],
   pedigreeDocuments: [
     {
       title: "Pedigree",
-      description: "Add a scan of the pedigree or a PDF export.",
-      type: "PDF / JPG",
-      file: "",
-      hint: "media/docs/pedigree/aria-pedigree.pdf"
-    },
-    {
-      title: "Stud Book",
-      description: "Scans of entries, stud book pages, or origin records.",
-      type: "JPG / PNG / PDF",
-      file: "",
-      hint: "media/docs/pedigree/aria-book-page.jpg"
+      description: "",
+      type: "JPG / PNG",
+      file: "media/docs/pedigree/pedigre_doc_aria.webp",
+      hint: "media/docs/pedigree/pedigre_doc_aria.webp"
     }
   ],
   healthDocuments: [
     {
-      title: "Health Certificate",
-      description: "An official certificate, examination result, or exported report.",
-      type: "PDF / JPG",
-      file: "",
-      hint: "media/docs/health/aria-health-certificate.pdf"
+      title: "Heart Testing",
+      description: "Result: no signs of pulmonic or aortic stenosis.",
+      type: "JPG / PNG",
+      files: [
+        {
+          src: "media/docs/health/hart_1.jpeg",
+          alt: "Heart testing document front side",
+          hint: "media/docs/health/hart_1.jpeg",
+          label: "Front Side"
+        },
+        {
+          src: "media/docs/health/hart_2.jpeg",
+          alt: "Heart testing document back side",
+          hint: "media/docs/health/hart_2.jpeg",
+          label: "Back Side"
+        }
+      ]
     },
     {
-      title: "Additional Document",
-      description: "Space for further health findings or official confirmations.",
-      type: "PDF / JPG",
-      file: "",
-      hint: "media/docs/health/aria-health-extra.jpg"
+      title: "Spondylosis",
+      description: "Result: spondylosis grade 0, negative.",
+      type: "JPG / PNG",
+      file: "media/docs/health/spondylosis.jpeg",
+      hint: "media/docs/health/spondylosis.jpeg"
+    },
+    {
+      title: "Hip Examination",
+      description: "Result: hip classification A.",
+      type: "JPG / PNG",
+      file: "media/docs/health/hip_sert.webp",
+      hint: "media/docs/health/hip_sert.webp"
     }
   ],
   results: [
@@ -128,33 +137,45 @@ window.ariaSiteData = {
       judge: "Mica Mladenovic",
       placement: "VP 1 — Very Promising 1",
       image: {
-        src: "",
+        src: "media/docs/show-results/zmajevo_cac_2023.jpeg",
         alt: "CAC Zmajevo 2023 show document",
-        hint: "media/docs/show-results/cac-zmajevo-2023.jpg"
+        hint: "media/docs/show-results/zmajevo_cac_2023.jpeg"
       }
     },
     {
-      date: "",
-      event: "Add the second result",
+      date: "26.08.2023.",
+      event: "CAC Kovin 2023",
       className: "Puppy class",
-      judge: "Judge",
-      placement: "Result",
+      judge: "Curcic Vesna",
+      placement: "Very Promising",
       image: {
-        src: "",
+        src: "media/docs/show-results/kovin_cac_2023.jpeg",
         alt: "Second show result document",
-        hint: "media/docs/show-results/show-result-02.jpg"
+        hint: "media/docs/show-results/kovin_cac_2023.jpeg"
       }
     },
     {
-      date: "",
-      event: "Add the third result",
+      date: "02.09.2023",
+      event: "Bokser Club Serbia 2023",
       className: "Puppy class",
-      judge: "Judge",
-      placement: "Result",
+      judge: "Robert Fagos",
+      placement: "Very Promising, 3rd place",
       image: {
-        src: "",
+        src: "media/docs/show-results/bokser_klub_spec_2023.jpeg",
         alt: "Third show result document",
-        hint: "media/docs/show-results/show-result-03.jpg"
+        hint: "media/docs/show-results/bokser_klub_spec_2023.jpeg"
+      }
+    },
+    {
+      date: "14.04.2024",
+      event: "CAC Zmajevo 2024",
+      className: "Junior class",
+      judge: "Savvas A.Tzegas",
+      placement: "Excellent in Junior Class",
+      image: {
+        src: "media/docs/show-results/cac_zmajevo_2024.jpeg",
+        alt: "Forth show result document",
+        hint: "media/docs/show-results/cac_zmajevo_2024.jpeg"
       }
     }
   ]

@@ -17,6 +17,7 @@ const resultsList = document.getElementById("results-list");
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
+const lightboxFrame = document.getElementById("lightbox-frame");
 const lightboxCaption = document.getElementById("lightbox-caption");
 const lightboxClose = document.getElementById("lightbox-close");
 
@@ -39,6 +40,7 @@ renderResults(resultsList, siteData.results);
 
 if (lightbox && typeof lightbox.showModal === "function") {
   lightboxClose.addEventListener("click", () => lightbox.close());
+  lightbox.addEventListener("close", resetLightbox);
   lightbox.addEventListener("click", (event) => {
     const dialogRect = lightbox.getBoundingClientRect();
     const clickedOutside =
@@ -93,16 +95,40 @@ function renderVideoCards(target, items) {
   items.forEach((item) => {
     const article = document.createElement("article");
     article.className = "video-card";
+    const badge = item.ageLabel ? `<span class="video-age-badge">${item.ageLabel}</span>` : "";
 
     const visual = item.src
       ? `
-        <video controls preload="metadata"${item.poster ? ` poster="${item.poster}"` : ""}>
-          <source src="${item.src}" />
-          Your browser does not support video playback.
-        </video>
+        <div class="video-media">
+          ${badge}
+          <video controls preload="metadata"${item.poster ? ` poster="${item.poster}"` : ""}>
+            <source src="${item.src}" />
+            Your browser does not support video playback.
+          </video>
+        </div>
+      `
+      : item.externalUrl
+      ? `
+        <a
+          class="video-link-card"
+          href="${item.externalUrl}"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="${item.title} - open external video"
+        >
+          <div class="video-placeholder video-placeholder-link">
+            ${badge}
+            <div class="placeholder-stack">
+              <div class="video-play">↗</div>
+              <strong>${item.title}</strong>
+              <span>Watch on Facebook</span>
+            </div>
+          </div>
+        </a>
       `
       : `
         <div class="video-placeholder">
+          ${badge}
           <div class="placeholder-stack">
             <div class="video-play">▶</div>
             <strong>${item.title}</strong>
@@ -125,30 +151,104 @@ function renderVideoCards(target, items) {
 
 function renderDocumentCards(target, items) {
   items.forEach((item) => {
-    const isLink = Boolean(item.file);
-    const element = document.createElement(isLink ? "a" : "article");
-    element.className = `doc-card${isLink ? " is-link" : ""}`;
+    const element = document.createElement("article");
+    element.className = "doc-card";
+    const hasDocumentFile =
+      Boolean(item.file) || Boolean(Array.isArray(item.files) && item.files.some((file) => file.src));
 
-    if (isLink) {
-      element.href = item.file;
-      element.target = "_blank";
-      element.rel = "noreferrer";
-      element.setAttribute("aria-label", `${item.title} - open document`);
-    }
+    const visual = buildDocumentVisual(item);
 
     element.innerHTML = `
-      <div class="doc-visual">
-        <div class="doc-tag">${item.type}</div>
-      </div>
+      ${visual}
       <div class="doc-body">
         <h3>${item.title}</h3>
-        <p class="doc-description">${item.description}</p>
-        <span class="doc-type">${isLink ? "Open document" : `Add file to ${item.hint}`}</span>
+        ${item.description ? `<p class="doc-description">${item.description}</p>` : ""}
+        ${hasDocumentFile ? "" : `<span class="doc-type">Add file to ${item.hint || "media/docs/"}</span>`}
       </div>
     `;
 
     target.appendChild(element);
   });
+
+  target.querySelectorAll(".doc-visual-button[data-document]").forEach((button) => {
+    button.addEventListener("click", () => openLightbox(button.dataset.document, button.dataset.caption));
+  });
+}
+
+function buildDocumentVisual(item) {
+  if (Array.isArray(item.files) && item.files.length > 0) {
+    const galleryItems = item.files
+      .map((file, index) => buildDocumentGalleryItem(item, file, index))
+      .join("");
+
+    return `<div class="doc-visual doc-visual-gallery">${galleryItems}</div>`;
+  }
+
+  if (item.file && isImageFile(item.file)) {
+    return `
+      <div class="doc-visual doc-visual-image">
+        <button
+          class="doc-visual-button"
+          type="button"
+          data-document="${item.file}"
+          data-caption="${item.title}"
+          aria-label="${item.title} - open document"
+        >
+          <img src="${item.file}" alt="${item.title}" loading="lazy" />
+        </button>
+      </div>
+    `;
+  }
+
+  if (item.file) {
+    return `
+      <div class="doc-visual">
+        <button
+          class="doc-visual-button doc-visual-generic-button"
+          type="button"
+          data-document="${item.file}"
+          data-caption="${item.title}"
+          aria-label="${item.title} - open document"
+        >
+          <div class="doc-tag">${item.type}</div>
+        </button>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="doc-visual">
+      <div class="doc-tag">${item.type}</div>
+    </div>
+  `;
+}
+
+function buildDocumentGalleryItem(item, file, index) {
+  const label = file.label || `Page ${index + 1}`;
+
+  if (file.src && isImageFile(file.src)) {
+    return `
+      <button
+        class="doc-gallery-item doc-visual-button"
+        type="button"
+        data-document="${file.src}"
+        data-caption="${item.title} - ${label}"
+        aria-label="${item.title} - ${label}"
+      >
+        <img src="${file.src}" alt="${file.alt || `${item.title} - ${label}`}" loading="lazy" />
+        <span class="doc-side-label">${label}</span>
+      </button>
+    `;
+  }
+
+  return `
+    <div class="doc-gallery-item doc-gallery-placeholder">
+      <div class="placeholder-stack">
+        <strong>${label}</strong>
+        <span>Add file to ${file.hint || item.hint || "media/docs/"}</span>
+      </div>
+    </div>
+  `;
 }
 
 function renderResults(target, items) {
@@ -234,6 +334,10 @@ function pluralize(value, singular, plural) {
   return value === 1 ? singular : plural;
 }
 
+function isImageFile(path) {
+  return /\.(avif|gif|jpe?g|png|webp)$/i.test(path);
+}
+
 function renderHeroVisual(image) {
   if (!heroVisual) {
     return;
@@ -257,8 +361,32 @@ function openLightbox(src, caption) {
     return;
   }
 
-  lightboxImage.src = src;
-  lightboxImage.alt = caption;
+  const isImage = isImageFile(src);
+
+  lightboxImage.hidden = !isImage;
+  lightboxFrame.hidden = isImage;
+
+  if (isImage) {
+    lightboxFrame.src = "";
+    lightboxImage.src = src;
+    lightboxImage.alt = caption;
+  } else {
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+    lightboxFrame.src = src;
+    lightboxFrame.title = caption;
+  }
+
   lightboxCaption.textContent = caption;
   lightbox.showModal();
+}
+
+function resetLightbox() {
+  lightboxImage.src = "";
+  lightboxImage.alt = "";
+  lightboxFrame.src = "";
+  lightboxFrame.title = "Document preview";
+  lightboxImage.hidden = false;
+  lightboxFrame.hidden = true;
+  lightboxCaption.textContent = "";
 }
