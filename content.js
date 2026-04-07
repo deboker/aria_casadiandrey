@@ -6,6 +6,10 @@ window.ariaSiteData = {
       "Elegant, expressive, and ready to represent herself both in the ring and beyond. This page brings together Aria's journey from puppyhood to the present day, with photos, videos, official documents, and show results in one place.",
     birthDate: "2022-12-18",
     breed: "German Boxer",
+    panelImage: {
+      src: "",
+      alt: "Aria hero image"
+    },
     quote: "Soft in expression, strong in stance, and ready to present both her pedigree and her results.",
     highlights: [
       {

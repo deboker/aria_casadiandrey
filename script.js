@@ -6,6 +6,7 @@ const heroIntro = document.getElementById("hero-intro");
 const heroBirthDate = document.getElementById("hero-birth-date");
 const heroAge = document.getElementById("hero-age");
 const heroBreed = document.getElementById("hero-breed");
+const heroVisual = document.getElementById("hero-visual");
 const heroQuote = document.getElementById("hero-quote");
 const highlightList = document.getElementById("highlight-list");
 
@@ -29,6 +30,7 @@ heroIntro.textContent = siteData.hero.intro;
 heroBirthDate.textContent = formatDate(birthDate);
 heroAge.textContent = formatAge(birthDate);
 heroBreed.textContent = siteData.hero.breed;
+renderHeroVisual(siteData.hero.panelImage);
 heroQuote.textContent = siteData.hero.quote;
 
 siteData.hero.highlights.forEach((item) => {
@@ -218,6 +220,21 @@ function formatAge(date) {
 
 function pluralize(value, singular, plural) {
   return value === 1 ? singular : plural;
+}
+
+function renderHeroVisual(image) {
+  if (!heroVisual) {
+    return;
+  }
+
+  if (image?.src) {
+    heroVisual.className = "hero-visual has-image";
+    heroVisual.innerHTML = `<img src="${image.src}" alt="${image.alt || `${siteData.hero.name} hero image`}" loading="eager" />`;
+    return;
+  }
+
+  heroVisual.className = "hero-visual is-crest";
+  heroVisual.innerHTML = '<div class="crest">A</div>';
 }
 
 function openLightbox(src, caption) {
